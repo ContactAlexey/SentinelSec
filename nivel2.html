@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SentinelSec - Nivel 2</title>
+    <link rel="stylesheet" href="estilo_nivel2.css">
+    <link rel="shortcut icon" href="./logo.ico" type="image/x-icon">
+</head>
+<body>
+
+    <button class="boton_volver" onclick="window.location.href='./seleccion_nivel.html'">
+        Volver atrás
+    </button>
+
+    <!-- Estado del jugador -->
+    <div class="status_top">
+        <p><strong>Score:</strong> <span id="score">0</span></p>
+        <p><strong>Vidas:</strong> <span id="lives">3</span></p>
+        <p><strong>Rango:</strong> <span id="rank_display">Junior Analyst</span></p>
+    </div>
+
+    <!-- Contenedor principal de alertas -->
+    <div class="info">
+        <!-- Alerta 1 -->
+        <div class="screen_info">
+            <h2 class="title_alert">Alerta 1</h2>
+            <div class="contenedor_info" id="contenedor-alerta1">
+                <p><strong>Alert Name:</strong> Cargando...</p>
+                <p><strong>Severity:</strong> -</p>
+                <p><strong>Status:</strong> Open</p>
+
+                <h3>Host Information</h3>
+                <p><strong>Host:</strong> -</p>
+                <p><strong>OS:</strong> -</p>
+                <p><strong>User:</strong> -</p>
+                <p><strong>Department:</strong> -</p>
+
+                <h3>Network / Activity Details</h3>
+                <p><strong>Activity:</strong> -</p>
+                <p><strong>Timestamp:</strong> -</p>
+                <p><strong>Source IP:</strong> -</p>
+
+                <h3>Additional Context</h3>
+                <p>Sin contexto adicional</p>
+            </div>
+        </div>
+
+        <!-- Alerta 2 -->
+        <div class="screen_info">
+            <h2 class="title_alert">Alerta 2</h2>
+            <div class="contenedor_info" id="contenedor-alerta2">
+                <p><strong>Alert Name:</strong> Cargando...</p>
+                <p><strong>Severity:</strong> -</p>
+                <p><strong>Status:</strong> Open</p>
+
+                <h3>Host Information</h3>
+                <p><strong>Host:</strong> -</p>
+                <p><strong>OS:</strong> -</p>
+                <p><strong>User:</strong> -</p>
+                <p><strong>Department:</strong> -</p>
+
+                <h3>Network / Activity Details</h3>
+                <p><strong>Activity:</strong> -</p>
+                <p><strong>Timestamp:</strong> -</p>
+                <p><strong>Source IP:</strong> -</p>
+
+                <h3>Additional Context</h3>
+                <p>Sin contexto adicional</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Área de decisión del analista -->
+    <div class="screen_results">
+        <h2 class="decision">Tu Decisión como Analista</h2>
+        <div class="decision_area">
+            <textarea 
+                id="analyst_response" 
+                placeholder="Escribe aquí tu razonamiento (opcional): ¿por qué coinciden? ¿qué patrón observas? ¿por qué crees que es falso positivo?..."
+                rows="4"
+            ></textarea>
+
+            <div class="decision_controls">
+                <select class="opciones" id="elecciones">
+                    <option value="" disabled selected>Selecciona tu decisión...</option>
+                    <option value="Coinciden">Coinciden (mismo incidente / misma campaña)</option>
+                    <option value="Investigar">Investigar por separado (no relacionados / falso positivo)</option>
+                </select>
+                <button class="btn_enviar">Enviar decisión</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modales personalizados -->
+    <div id="modal-correcto" class="modal">
+        <div class="modal-content success">
+            <span class="close-modal">×</span>
+            <h2>¡Correcto!</h2>
+            <p>+25 puntos</p>
+            <p class="emoji">✅🔥</p>
+            <div class="modal-buttons">
+                <button class="btn-continuar">Continuar</button>
+                <button class="btn-salir">Salir al menú</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-incorrecto" class="modal">
+        <div class="modal-content warning">
+            <span class="close-modal">×</span>
+            <h2>Incorrecto</h2>
+            <p id="texto-vidas-restantes">Vidas restantes: 3</p>
+            <p class="emoji">⚠️</p>
+            <div class="modal-buttons">
+                <button class="btn-continuar">Continuar</button>
+                <button class="btn-salir">Salir al menú</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-gameover" class="modal">
+        <div class="modal-content danger">
+            <span class="close-modal">×</span>
+            <h2>GAME OVER</h2>
+            <p id="puntuacion-final">Puntuación final: 0</p>
+            <p id="rango-final">Rango: Junior Analyst</p>
+            <p class="emoji">💀🔴</p>
+            <div class="modal-buttons">
+                <button class="btn-reiniciar">Jugar de nuevo</button>
+                <button class="btn-salir">Salir al menú</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="funcionamiento_nivel2.js"></script>
+</body>
+</html>

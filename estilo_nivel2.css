@@ -1,0 +1,355 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 40px;
+}
+
+.boton_volver {
+    margin: 16px 20px;
+    padding: 10px 18px;
+    background: #334155;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+    align-self: flex-start;
+}
+
+.boton_volver:hover {
+    background: #475569;
+    transform: translateY(-1px);
+}
+
+.status_top {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 16px;
+    background: #1e293b;
+    border-bottom: 1px solid #334155;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.info {
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+    flex-wrap: wrap;
+}
+
+.screen_info {
+    flex: 1;
+    min-width: 320px;
+    background: #1e293b;
+    border: 2px solid #475569;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.title_alert {
+    background: #334155;
+    margin: 0;
+    padding: 14px;
+    text-align: center;
+    font-size: 1.3rem;
+    border-bottom: 2px solid #475569;
+}
+
+.contenedor_info {
+    padding: 16px;
+}
+
+.contenedor_info h3 {
+    margin: 20px 0 8px;
+    color: #94a3b8;
+    font-size: 1.05rem;
+}
+
+.contenedor_info p {
+    margin: 6px 0;
+    line-height: 1.5;
+}
+
+.screen_results {
+    margin: 0 24px 40px;
+    padding: 24px;
+    background: #1e293b;
+    border: 2px solid #475569;
+    border-radius: 10px;
+}
+
+.decision {
+    margin: 0 0 20px 0;
+    color: #cbd5e1;
+}
+
+.decision_area {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+#analyst_response {
+    flex: 3;
+    min-height: 160px;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #475569;
+    background: #0f172a;
+    color: #e2e8f0;
+    font-family: inherit;
+    resize: vertical;
+}
+
+.decision_controls {
+    flex: 1;
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.opciones, .btn_enviar {
+    padding: 12px 16px;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.opciones {
+    background: #334155;
+    color: white;
+}
+
+.btn_enviar {
+    background: #22c55e;
+    color: white;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.btn_enviar:hover {
+    background: #16a34a;
+    transform: translateY(-1px);
+}
+
+.btn_enviar:active {
+    transform: scale(0.98);
+}
+
+/* ====================== MODALES ====================== */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 32px;
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+    border: 3px solid;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.success  { border-color: #22c55e; color: #bbf7d0; }
+.warning  { border-color: #f59e0b; color: #fef3c7; }
+.danger   { border-color: #ef4444; color: #fecaca; }
+
+.modal-content h2 {
+    margin: 0 0 16px;
+    font-size: 2rem;
+}
+
+.modal-content p {
+    margin: 8px 0;
+    font-size: 1.15rem;
+}
+
+.emoji {
+    font-size: 3.5rem;
+    margin: 16px 0;
+}
+
+.close-modal {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #94a3b8;
+}
+
+.close-modal:hover {
+    color: white;
+}
+
+.modal-buttons {
+    margin-top: 24px;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-continuar,
+.btn-reiniciar,
+.btn-salir {
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-continuar {
+    background: #22c55e;
+    color: white;
+}
+
+.btn-continuar:hover {
+    background: #16a34a;
+}
+
+.btn-reiniciar {
+    background: #3b82f6;
+    color: white;
+}
+
+.btn-reiniciar:hover {
+    background: #2563eb;
+}
+
+.btn-salir {
+    background: #64748b;
+    color: white;
+}
+
+.btn-salir:hover {
+    background: #475569;
+}
+
+/* Responsive */
+/* ====================== RESPONSIVE < 768px ====================== */
+@media (max-width: 768px) {
+
+    body {
+        padding-bottom: 20px;
+    }
+
+    .boton_volver {
+        margin: 12px 16px;
+        padding: 8px 14px;
+        font-size: 0.9rem;
+    }
+
+    .status_top {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        font-size: 0.95rem;
+        padding: 12px;
+    }
+
+    .info {
+        flex-direction: column;
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .screen_info {
+        min-width: 100%;
+    }
+
+    .title_alert {
+        font-size: 1.1rem;
+        padding: 12px;
+    }
+
+    .contenedor_info {
+        padding: 14px;
+    }
+
+    .contenedor_info h3 {
+        font-size: 1rem;
+    }
+
+    .contenedor_info p {
+        font-size: 0.95rem;
+    }
+
+    .screen_results {
+        margin: 0 16px 24px;
+        padding: 16px;
+    }
+
+    .decision_area {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    #analyst_response {
+        min-height: 140px;
+        font-size: 0.95rem;
+    }
+
+    .decision_controls {
+        min-width: 100%;
+    }
+
+    .opciones,
+    .btn_enviar {
+        width: 100%;
+        font-size: 0.95rem;
+    }
+
+    .modal-content {
+        padding: 20px;
+        width: 95%;
+    }
+
+    .modal-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .modal-content p {
+        font-size: 1rem;
+    }
+
+    .emoji {
+        font-size: 2.8rem;
+    }
+
+    .modal-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn-continuar,
+    .btn-reiniciar,
+    .btn-salir {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+    }
+}

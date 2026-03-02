@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SentinelSec - Nivel 3</title>
+<link rel="stylesheet" href="estilo_nivel3.css">
+<link rel="shortcut icon" href="./logo.ico" type="image/x-icon">
+</head>
+<body>
+    <button class="boton_volver" onclick="window.location.href='./seleccion_nivel.html'">Volver atras</button>
+
+    <!-- Status arriba de los paneles -->
+    <div class="status-container">
+        <div id="score">Score: 0</div>
+        <div id="lives">Vidas: 3</div>
+    </div>
+
+    <div class="container">
+        <div class="panel alerts-panel">
+            <h2>Alerta</h2>
+            <div id="alerts"></div>
+        </div>
+
+        <div class="panel logs-panel">
+            <h2>Logs</h2>
+            <div id="logs"></div>
+        </div>
+
+        <div class="panel actions-panel">
+            <h2>Acciones</h2>
+            <div class="action-buttons">
+                <button onclick="action('isolate')">
+                    Isolate Host <span>→ Aísla el equipo de la red</span>
+                </button>
+                <button onclick="action('kill')">
+                    Terminate Process <span>→ Finaliza proceso malicioso</span>
+                </button>
+                <button onclick="action('reset')">
+                    Reset Credentials <span>→ Fuerza cambio de contraseña</span>
+                </button>
+                <button onclick="action('blockip')">
+                    Block IP <span>→ Bloquea IP atacante</span>
+                </button>
+                <button onclick="action('collect')">
+                    Collect Artefacts <span>→ Recopila evidencias</span>
+                </button>
+                <button onclick="action('investigate')">Investigate Further <span>→ Profundizar investigación</span></button>
+                <button onclick="action('scan')">Full AV/EDR Scan <span>→ Escaneo completo</span></button>
+                <button onclick="action('quarantine')">Quarantine File <span>→ Cuarentena de archivo</span></button>
+                <button onclick="action('monitor')">Monitor User <span>→ Monitoreo intensivo de usuario</span></button>
+                <button onclick="action('report')">Report to HR/Mgmt <span>→ Reportar a RRHH o gerencia</span></button>
+                <button onclick="action('tune')">Tune Rule <span>→ Ajustar / excluir regla</span></button>
+                <button onclick="action('false')">
+                    False Positive <span>→ Marca alerta como legítima</span>
+                </button>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Modales -->
+    <div id="modal-correcto" class="modal">
+        <div class="modal-content success">
+            <span class="close-modal">×</span>
+            <h2>¡Correcto!</h2>
+            <p>+25 puntos</p>
+            <p class="emoji">✅🔥</p>
+            <div class="modal-buttons">
+                <button class="btn-continuar">Continuar</button>
+                <button class="btn-salir">Salir</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-incorrecto" class="modal">
+        <div class="modal-content warning">
+            <span class="close-modal">×</span>
+            <h2>Incorrecto</h2>
+            <p id="texto-vidas-restantes">Vidas restantes: 3</p>
+            <p class="emoji">⚠️</p>
+            <div class="modal-buttons">
+                <button class="btn-continuar">Continuar</button>
+                <button class="btn-salir">Salir</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-gameover" class="modal">
+        <div class="modal-content danger">
+            <span class="close-modal">×</span>
+            <h2>GAME OVER</h2>
+            <p id="puntuacion-final">Puntuación final: 0</p>
+            <p id="rango-final">Rango: Junior Analyst</p>
+            <p class="emoji">💀🔴</p>
+            <div class="modal-buttons">
+                <button class="btn-reiniciar">Jugar de nuevo</button>
+                <button class="btn-salir">Salir</button>
+            </div>
+        </div>
+    </div>
+
+<script src="funcionamiento_nivel3.js"></script>
+</body>
+</html>

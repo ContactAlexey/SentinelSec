@@ -1,0 +1,175 @@
+html{
+    font-size:16px; /* tamaño normal en PC */
+}
+
+body{
+    color:#ffffff;
+    font-family:Arial, Helvetica, sans-serif;
+    margin:0;
+    padding:20px;
+    font-weight:600; /* menos agresivo que bold total */
+    overflow-x:hidden;
+    line-height:1.6;
+    letter-spacing:0.3px;
+}
+
+/* Fondo */
+body::before {
+    content: "";
+    position: fixed;
+    
+    /* 👇 CLAVE: expandimos el fondo */
+    top: -40px;
+    left: -40px;
+    right: -40px;
+    bottom: -40px;
+
+    background-image: url(./fondo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    filter: blur(8px);
+    z-index: -1;
+}
+
+/* Layout principal */
+.container_p{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:60px;
+    min-height:100vh;
+    flex-wrap:wrap;
+    text-align:center;
+}
+
+.container{
+    max-width:600px;
+    width:100%;
+}
+
+/* Títulos */
+h1{
+    font-size:2.2rem;
+    font-weight:700;
+    margin-bottom:0.6rem;
+    letter-spacing:1px;
+}
+
+h2{
+    font-size:1rem;
+    font-weight:400;
+    margin-bottom:2rem;
+    opacity:0.9;
+}
+
+/* Información */
+.role{
+    margin:1.5rem 0;
+    font-size:0.9rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    opacity:0.9;
+}
+
+.name{
+    font-size:1.2rem;
+    font-weight:600;
+    margin-top:0.4rem;
+}
+
+.description{
+    margin-top:2rem;
+    font-size:0.95rem;
+    opacity:0.95;
+    line-height:1.8;
+    color:white;
+}
+
+/* Botones */
+button{
+    padding:14px 22px;
+    margin:6px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    margin-top:20px;
+    font-size:1rem;
+    transition:0.3s ease;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+/* Imagen */
+.imagen{
+    width:100%;
+    max-width:400px;
+    height:auto;
+}
+
+/* Footer */
+footer{
+    margin-top:3rem;
+    font-size:0.85rem;
+    opacity:0.9;
+}
+
+/* ===================== */
+/*        MÓVIL          */
+/* ===================== */
+
+@media (max-width:768px){
+
+    html{
+        font-size:16px; /* más grande solo en móvil */
+    }
+
+    body{
+        padding:18px;
+    }
+
+    .container_p{
+        flex-direction:column;
+        gap:35px;
+        padding-top:50px;
+        padding-bottom:50px;
+    }
+
+    h1{
+        font-size:2.2rem;
+    }
+
+    h2{
+        font-size:1.1rem;
+    }
+
+    .description{
+        font-size:1.05rem;
+        line-height:1.9;
+    }
+
+    .imagen{
+        max-width:300px;
+    }
+
+    button{
+        width:100%;
+        max-width:240px;
+        padding:18px 20px;
+        font-size:1.1rem;
+        border-radius:12px;
+    }
+
+    footer{
+        font-size:0.95rem;
+        margin-top:2.5rem;
+    }
+}
+html, body {
+    margin: 0; /* Asegúrate de que no haya márgenes */
+    padding: 0; /* Asegúrate de que no haya relleno */
+}

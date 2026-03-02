@@ -1,0 +1,135 @@
+body {
+    color: #e2e8f0;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    
+    /* 👇 CLAVE: expandimos el fondo */
+    top: -40px;
+    left: -40px;
+    right: -40px;
+    bottom: -40px;
+
+    background-image: url(./fondo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    filter: blur(8px);
+    z-index: -1;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+    margin: 40px auto;
+    background: #1e293b;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.514);
+    box-sizing: border-box;
+    /* Aseguramos que se centra correctamente en la vista móvil */
+    display: block; /* Se asegura que el contenedor no esté flotando */
+    margin-left: auto; /* Centrado automático */
+    margin-right: auto; /* Centrado automático */
+}
+
+h1 {
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 40px);
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.subtitulo {
+    text-align: center;
+    margin-bottom: 40px;
+    opacity: 0.8;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+}
+
+h2 {
+    margin-top: 30px;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 5px;
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+}
+
+ul {
+    margin-top: 10px;
+    line-height: 1.8;
+    padding-left: 20px;
+}
+
+.highlight {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.rangos {
+    background: #ffffff;
+    color: #1e293b;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 18px;
+        margin: 0;
+    }
+
+    .container {
+        padding: 25px;
+        margin: 20px 15px;
+        box-sizing: border-box;
+        /* Aseguramos que en dispositivos móviles el contenedor esté centrado */
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+    }
+
+    h1 {
+        font-size: clamp(1.5rem, 6vw, 32px);
+    }
+
+    .subtitulo {
+        margin-bottom: 25px;
+    }
+
+    h2 {
+        font-size: clamp(1rem, 4vw, 1.3rem);
+    }
+
+    .rangos {
+        padding: 12px;
+    }
+
+    button {
+        width: 100%;
+        max-width: 250px;
+        padding: 12px 18px; /* Ajuste del padding para que el botón se vea bien en móviles */
+    }
+}

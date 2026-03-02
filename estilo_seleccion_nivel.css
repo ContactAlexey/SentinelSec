@@ -1,0 +1,197 @@
+body {
+    margin: 0;
+    padding: 40px 20px;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #0f172a;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Fondo desenfocado */
+body::before {
+    content: "";
+    position: fixed;
+    inset: -40px;
+    background-image: url(./fondo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px) brightness(0.4);
+    z-index: -1;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.titulo {
+    font-size: clamp(1.8rem, 6vw, 3rem);
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+/* Grid layout */
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 35px;
+    max-width: 1100px;
+    margin: 0 auto 60px auto;
+    padding: 0 10px;
+}
+
+/* Card */
+.card {
+    background: rgba(51, 65, 85, 0.9);
+    border-radius: 18px;
+    padding: 30px 20px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    transition: 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.55);
+}
+
+/* Imagen */
+.foto {
+    width: 100%;
+    max-width: 170px;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    border: 3px solid white;
+}
+
+/* Texto */
+.text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-top: 15px;
+    opacity: 0.9;
+}
+
+/* Badges */
+.badge {
+    margin-top: 5px;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.facil { background-color: #22c55e; }
+.intermedio { background-color: #3b82f6; }
+.avanzado { background-color: #ef4444; }
+
+/* Colores por nivel */
+.nivel1 { border-top: 4px solid #22c55e; }
+.nivel2 { border-top: 4px solid #3b82f6; }
+.nivel3 { border-top: 4px solid #ef4444; }
+
+/* BOTÓN ÚNICO */
+.btn {
+    display: block;
+    width: clamp(140px, 60%, 200px);
+    margin: 40px auto 0 auto;
+    padding: 12px 20px;
+
+    background-color: #ffffff;
+    color: #1e293b;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    text-align: center;
+
+    transition: 0.25s ease;
+}
+
+.btn:hover {
+    background-color: #00ccff;
+    transform: translateY(-3px);
+}
+
+/* ---------- RESPONSIVE BREAKPOINTS ---------- */
+
+/* Tablets */
+@media (max-width: 992px) {
+    body {
+        padding: 30px 15px;
+    }
+
+    .contenedor {
+        gap: 25px;
+    }
+
+    .card {
+        padding: 25px 18px;
+    }
+}
+
+/* Móviles */
+@media (max-width: 600px) {
+
+    body {
+        padding: 25px 15px;
+    }
+
+    .header {
+        margin-bottom: 40px;
+    }
+
+    .contenedor {
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .card {
+        padding: 22px 16px;
+    }
+
+    .text {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        margin-top: 30px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 380px) {
+
+    .titulo {
+        font-size: 1.6rem;
+    }
+
+    .card {
+        padding: 18px 14px;
+    }
+
+    .text {
+        font-size: 0.85rem;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 220px;
+    }
+}

@@ -1,0 +1,185 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #1e293b;
+    color: white;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* ================= PANEL LATERAL ================= */
+
+#alert_panel {
+    width: 280px;
+    background: #0f172a;
+    padding: 10px;
+    overflow-y: auto;
+    border-right: 2px solid #334155;
+}
+
+#alert_panel h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.alert_item {
+    background: #334155;
+    margin: 6px 0;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.alert_item:hover {
+    background: #475569;
+}
+
+/* ================= ÁREA PRINCIPAL ================= */
+
+#main_card {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    position: relative; /* CLAVE para el scoreboard */
+}
+
+/* ================= SCOREBOARD ================= */
+
+#scoreboard {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(30, 41, 59, 0.9);
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+/* ================= CARD ================= */
+
+.card {
+    display: none;
+    background: rgba(30, 41, 59, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 60px; /* espacio para no chocar con scoreboard */
+}
+
+textarea {
+    width: 100%;
+    padding: 6px;
+    border-radius: 4px;
+}
+
+/* ================= BOTONES ================= */
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.btn_safe {
+    background: #17700b;
+    color: white;
+}
+
+.btn_malicious {
+    background: #dc2626;
+    color: white;
+}
+
+#toggle_panel_btn {
+    display: none;
+}
+
+/* ================= POPUP ================= */
+
+#popup_fin {
+    position: fixed;
+    inset: 0;
+    background: rgba(30, 41, 59, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup_content {
+    background: #0f172a;
+    padding: 30px 40px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+}
+
+#btn_replay {
+    background: #17700b;
+    color: white;
+}
+
+#btn_exit {
+    background: #dc2626;
+    color: white;
+}
+
+/* ================= MÓVIL ================= */
+
+@media (max-width: 768px) {
+
+    body {
+        flex-direction: column;
+    }
+
+    #alert_panel {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        overflow-y: auto;
+        transition: height 0.3s ease;
+        border-right: none;
+        border-bottom: 2px solid #334155;
+        z-index: 100;
+    }
+
+    #alert_panel.show {
+        height: 50%;
+    }
+
+    #main_card {
+        padding: 10px;
+    }
+
+    #scoreboard {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        top: auto;
+    }
+
+    #toggle_panel_btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        background: #475569;
+        color: white;
+    }
+
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
+}

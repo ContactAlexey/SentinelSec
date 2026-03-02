@@ -1,0 +1,85 @@
+/* BASE */
+body {
+    margin: 0;
+    padding: 20px;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    align-items: center;       
+
+    position: relative;
+    z-index: 1;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    
+    /* 👇 CLAVE: expandimos el fondo */
+    top: -40px;
+    left: -40px;
+    right: -40px;
+    bottom: -40px;
+
+    background-image: url(./fondo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    filter: blur(8px);
+    z-index: -1;
+}
+
+.foto_logo{
+    width: 100%;
+    max-width: 20%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #1e293b;
+    padding: 12px 24px;
+    width: 400px;
+    margin: 10px;
+    text-decoration: none; 
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.3s ease;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+.btn:hover {
+    background-color: #00ccff;
+    transform: scale(1.05);
+}
+
+.botones{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+@media (max-width: 600px){
+
+    body{
+        padding:15px;
+    }
+
+    .btn{
+        width:100%;
+        max-width:280px;
+    }
+
+    .foto_logo{
+        max-width:280px;
+    }
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>SentinelSec - Reglas del Juego</title>
+    <link rel="stylesheet" href="./estilo_reglas.css">
+    <link rel="shortcut icon" href="./logo.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="container">
+    <h1>SentinelSec</h1>
+    <p class="subtitulo">Reglas del Juego – ¡Conviértete en analista SOC!</p>
+
+    <h2>🎯 Objetivo General</h2>
+    <p>
+        Eres analista Tier 1 → Tier 2 → Tier 3 de un <span class="highlight">SOC</span>.<br>
+        Tu misión es analizar alertas de seguridad y tomar decisiones rápidas y correctas bajo presión.
+    </p>
+
+    <h2>Progresión de Niveles y Dificultad</h2>
+    <p>El juego tiene 3 niveles con mecánicas y complejidad creciente:</p>
+
+    <div class="nivel-card">
+        <h3>🔹 Nivel 1 – Alert Triage Básico (Tier 1 – Junior)</h3>
+        <ul>
+            <li>Recibes <strong>una alerta</strong> cada vez (hasta 20 alertas).</li>
+            <li>Decides: <strong>Escalar</strong> o <strong>No Escalar</strong>.</li>
+            <li>Hay alertas <strong>Low / Medium / High</strong> con diferente probabilidad de ser reales.</li>
+            <li>Información disponible:
+                <ul>
+                    <li>Nombre de la alerta</li>
+                    <li>Severidad</li>
+                    <li>Actividad observada (con IP y hora aleatoria)</li>
+                    <li>Contexto adicional</li>
+                    <li>Host, usuario, departamento, SO</li>
+                </ul>
+            </li>
+            <li>Clave: Aprender a distinguir ruido rutinario (copias de seguridad, actualizaciones, inicios de sesión normales) de señales de compromiso reales (C2, ransomware, exfiltración, PowerShell sospechoso, etc.).</li>
+            <li>Errores cuestan 1 vida. Aciertos dan +25 puntos.</li>
+            <li>Fin: 0 vidas o 20 alertas respondidas.</li>
+        </ul>
+        <p class="meta">Objetivo pedagógico: Desarrollar intuición inicial de triage y reducir falsos negativos graves.</p>
+    </div>
+
+    <div class="nivel-card">
+        <h3>🔸 Nivel 2 – Correlación de Alertas (Tier 1 avanzado / Tier 2 inicial)</h3>
+        <ul>
+            <li>Ahora recibes <strong>dos alertas simultáneas</strong> en cada ronda.</li>
+            <li>Tienes que decidir si:</li>
+            <ul>
+                <li><strong>Coinciden / están relacionadas</strong> (mismo atacante, misma campaña, misma víctima)</li>
+                <li><strong>No coinciden</strong> (una es ruido / falso positivo o son incidentes independientes)</li>
+            </ul>
+            <li>Las alertas pueden compartir:</li>
+            <ul>
+                <li>Usuario</li>
+                <li>Host</li>
+                <li>IP (no siempre)</li>
+                <li>Departamento</li>
+            </ul>
+            <li>~45% de las rondas son correlacionadas (mismo contexto), el resto son independientes o una es ruido legítimo.</li>
+            <li>Incluye muchas más señales de <strong>High severity</strong> (ransomware, C2, exfiltración masiva, beaconing, dumping de credenciales, movimiento lateral…)</li>
+            <li>También hay <strong>falsos positivos realistas</strong> (actualizaciones, backups, RDP legítimo, Defender, etc.).</li>
+            <li>Misma puntuación: +25 acierto, -1 vida error.</li>
+        </ul>
+        <p class="meta">Objetivo pedagógico: Entrenar correlación de eventos y reducir ruido mediante contexto compartido.</p>
+    </div>
+
+    <div class="nivel-card">
+        <h3>🔴 Nivel 3 – Respuesta Rápida a Incidentes (Tier 2 / Tier 3)</h3>
+        <ul>
+            <li>Cada ronda es un <strong>escenario realista de incidente</strong> (no solo triage, sino decisión de contención).</li>
+            <li>Recibes:</li>
+            <ul>
+                <li>Resumen de alerta</li>
+                <li>Varios logs relacionados (Sysmon, Windows Event, red…)</li>
+            </ul>
+            <li>Tienes que elegir <strong>acciones de respuesta inmediata</strong> (puedes seleccionar varias):
+                <ul>
+                    <li>Aislar host (isolate)</li>
+                    <li>Bloquear IP (blockip)</li>
+                    <li>Matar proceso (kill)</li>
+                    <li>Poner en cuarentena archivo (quarantine)</li>
+                    <li>Resetear contraseñas (reset)</li>
+                    <li>Recolectar artefactos (collect)</li>
+                    <li>Reportar / escalar (report)</li>
+                    <li>Marcar como falso positivo / ajustar regla (false / tune)</li>
+                    <li>Monitorizar solamente (monitor)</li>
+                    <li>Investigar más (investigate)</li>
+                </ul>
+            </li>
+            <li>Cada escenario tiene una combinación correcta (o varias aceptables).</li>
+            <li>Ejemplos de escenarios:
+                <ul>
+                    <li>Phishing → PowerShell codificado → C2</li>
+                    <li>Password spraying</li>
+                    <li>Web shell en IIS</li>
+                    <li>Ransomware cifrando + eliminación de shadows</li>
+                    <li>Mimikatz / lsass access</li>
+                    <li>Certutil como downloader</li>
+                    <li>Insider exfiltrando a mega.nz</li>
+                    <li>Macro maliciosa Office</li>
+                    <li>Falsos positivos: backup legítimo, PsExec admin, actualización Defender</li>
+                </ul>
+            </li>
+        </ul>
+        <p class="meta">Objetivo pedagógico: Pasar de “¿escalamos?” a “¿qué hacemos YA?” – priorizar contención y respuesta.</p>
+    </div>
+
+    <h2>🧮 Sistema de Puntuación (todos los niveles)</h2>
+    <ul>
+        <li>Acierto → <strong>+25 puntos</strong></li>
+        <li>Error → <strong>-1 vida</strong></li>
+        <li>Empiezas con <strong>3 vidas</strong></li>
+    </ul>
+
+    <h2>🏆 Rangos (acumulativo en todos los niveles)</h2>
+    <div class="rangos">
+        <ul>
+            <li>0–100    → Junior Analyst</li>
+            <li>101–200  → Intermediate Analyst</li>
+            <li>201–300  → Senior Analyst</li>
+            <li>301–400  → Threat Hunter Pro</li>
+            <li>401+     → SOC Master</li>
+        </ul>
+    </div>
+
+    <h2>🏁 Fin del Juego</h2>
+    <p>El juego termina cuando:</p>
+    <ul>
+        <li>Pierdes las 3 vidas</li>
+        <li>Completas todas las rondas del nivel (en nivel 1 son 20)</li>
+    </ul>
+    <p>Verás tu puntuación final, rango y podrás volver a jugar o salir.</p>
+
+    <button class="boton_volver" onclick="window.location.href='./index.html'">
+        Volver al Inicio
+    </button>
+</div>
+</body>
+</html>

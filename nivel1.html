@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>SentinelSec - Nivel 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo_nivel1.css">
+    <link rel="shortcut icon" href="./logo.ico" type="image/x-icon">
+</head>
+<body>
+
+    <!-- Panel lateral -->
+    <div id="alert_panel">
+        <h2>SentinelSec SOC Panel</h2>
+        <div id="alert_list"></div>
+    </div>
+
+    <!-- Área principal -->
+    <div id="main_card">
+
+        <!-- Scoreboard (AHORA DENTRO) -->
+        <div id="scoreboard">
+            <p>Score: <span id="score">0</span></p>
+            <p>Vidas: <span id="lives">3</span></p>
+        </div>
+
+        <!-- Botón toggle móvil -->
+        <button id="toggle_panel_btn">☰ Mostrar Alertas</button>
+
+        <!-- Card del ticket -->
+        <div class="card" id="ticket_card">
+            <h2 id="ticket_id"></h2>
+
+            <p><strong>Alert Name:</strong> <span id="alert_name"></span></p>
+            <p><strong>Severity:</strong> <span id="severity"></span></p>
+            <p><strong>Status:</strong> Open</p>
+
+            <h3>Host Information</h3>
+            <p><strong>Host:</strong> <span id="host"></span></p>
+            <p><strong>OS:</strong> <span id="os"></span></p>
+            <p><strong>User:</strong> <span id="user"></span></p>
+            <p><strong>Department:</strong> <span id="dept"></span></p>
+
+            <h3>Network / Activity Details</h3>
+            <p id="activity_details"></p>
+
+            <h3>Additional Context</h3>
+            <p id="context"></p>
+
+            <h3>Decisión</h3>
+            <textarea id="analyst_response" rows="4" placeholder="Mentalmente usa 5W para decidir"></textarea>
+
+            <div style="margin-top:10px;">
+                <button id="btn_close" class="btn_safe" onclick="evaluarTicket(false)">CERRAR</button>
+                <button id="btn_escalate" class="btn_malicious" onclick="evaluarTicket(true)">ESCALAR</button>
+            </div>
+        </div>
+
+        <button class="boton_volver" onclick="window.location.href='./seleccion_nivel.html'">
+            Volver atrás
+        </button>
+
+    </div>
+
+    <script src="funcionamiento_nivel1.js"></script>
+</body>
+</html>
