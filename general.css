@@ -1,8 +1,14 @@
-body {
+/* 1. Asegurar que el scroll esté activo pero la barra invisible */
+html, body {
+  overflow-y: scroll; /* Fuerza el scroll si hay contenido */
   scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE y Edge antiguos */
+  -ms-overflow-style: none; /* IE 10+ y Edge antiguo */
 }
 
+/* 2. Ocultar barra en Chrome, Safari, Edge moderno y Opera */
+html::-webkit-scrollbar, 
 body::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
-}
+  display: none; 
+  width: 0; 
+  background: transparent;
+}   
